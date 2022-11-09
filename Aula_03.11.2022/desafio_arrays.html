@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Array</title>
+</head>
+<body>
+    <h1>Desafio Array</h1>
+</body>
+<script>
+    /*
+    Desafio de lógica
+    #Fase 1
+    - crie um array dinâmico com três posições
+    - crie uma iteração que retorne números aleatórios entre 1 e 3
+    - a cada retorno, altere o valor do array respectivamente
+
+    #Fase 2
+    - utilize as linhas codificadas e insira uma função
+    - crie uma verificação que identifica se os números do array são iguais
+    - se sim: escreva 'Porta aberta'
+    - se não: escreva 'Tente de novo!'
+
+    #Fase 3
+    - crie uma variável de controle para acumular a quantidade de vezes que os números se repetem
+    - crie uma variável que armazene o valor do útimo sorteio
+    - compare o valor do último sorteio com o valor do sorteio atual
+    -- Se os valores forem iguais: escreva 'Porta (x)' : aberta
+    -- Se os valores forem diferentes: escreva 'Tente de novo' (Com a execução do resultado ser de números iguais)
+    
+    As portas serão abertas quando:
+        - os números do array forem iguais 
+        - a sequência de números do array for igual a sequência de números do útimo sorteio
+
+    Fim do jogo acontece quando a terceira porta for aberta.    
+    */
+
+    let numero = [0,0,0]
+    let ultimoSorteio = []
+    let cont = 0
+
+    function sorteia(){
+        let iguais = 0
+        
+        for (let i = 0; i < numero.length; i++) {
+            let sorteio = parseInt(Math.random() * 3) + 1
+            numero[i] = sorteio
+            ultimoSorteio[i] = numero[i]        
+            console.log(`${i + 1}° Numero sorteado: ${numero[i]}`)
+        }
+        for(let i = 0; i < numero.length; i++){
+            for(let j = i +1; j < numero.length; j++){
+                if(numero[j] === numero[i]){
+                    iguais ++
+                }
+            }
+        }
+        console.log(`${iguais} se repete`);
+        
+        if(iguais === 3){
+            console.log(`Porta aberta`)
+        }else{
+            console.log(`Tente de novo`)
+        }
+
+    }
+</script>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 02</title>
+</head>
+<body>
+    <h1>Exercíco 01</h1>
+</body>
+<script>
+    var nome = 'Kenny';
+    let produto = 'geladeira';
+        //let produto = 'fogão';//Erro, não se pode declarar a mesma variavél usando a palavra let.
+    const desconto = 10;
+        //desconto = 20;//Erro no console, pois o valor da constante não pode ser alterado.
+    
+    //Escrever um progrma usnado if e else, se nome for Elvis Presley.
+    console.log("Exemplos Utilizando If Else");
+    if (nome == 'Elvis Presley') {
+        console.log("Você é "+nome);
+    }else{
+        console.log(`${nome}, você não é Elvis Presley`);
+    }
+    console.log("-----------------");
+    nome == 'Elvis Presley' ? console.log("Você é " + nome) : console.log(`${nome}, você não é Elvis Presley`);
+    console.log("+++++++++++++++++");
+
+    console.log(`Verificação de variaveis: ${desconto === 20}`);//Coersão força o tipo a se tornar o tipo, para tirar usa-se tres iguais, onde se compara tipos.
+
+    //-----------------------------------------
+    //Use switch case para escrever um programa para informar quando for 0 = Básico, 1 = Intermediário, 2 - Avançado.
+    console.log("+++++++++++++++++++++++");
+    console.log(`Exmplo utilizando o Switch`);
+    let nivel = 3;
+    let perfil = 'Básico';
+
+    switch (nivel) {
+        case 0:
+            perfil = 'Básico'
+            break;
+        case 1:
+            perfil = 'Intermediário'
+            break;
+        case 2:
+            perfil = 'Avançado'
+            break;
+        default:
+            perfil = 'Opção inexistente'
+            break;
+    }
+    console.log(`Nível ${nivel}: ${perfil}`);
+    console.log(`+++++++++++++++++++++++++`);
+
+    let msg;
+    
+    function saudacao(user, diaDaSemana){
+        return `Olá, ${user}, hoje é ${diaDaSemana}`
+    };
+    msg = saudacao('Kenny Wilker', 'Domingo');
+    console.log(msg);
+    console.log(`+++++++++++++++++++++++++`);
+    console.log(`Eemplo com Arrays`);
+    let animais = ['Elefante', 'Girafa', 'Leão', 'Hipopótamo'];
+    animais[0] = 'Tigre';
+    animais.push('Raposa')
+    console.log(`Nosso zoo tem ${animais[1]} e ${animais[0]}`);
+    console.log(`+++++++++++++++++++++++++++++++++++`)
+    let paises = [] 
+    paises.push('Brasil')
+    paises[1] = 'Alemanha'
+
+    let cores = new Array('Amarelo', 'Verde', 'Branco')
+
+    //For of
+    for(const cor of cores){
+        console.log('Cores', cor)
+    }
+    //For in
+    for (const cor in cores) {
+            console.log(cor)
+        }
+    //A diferença entre o for of e for in é que o of devolve o valor e o in devolve a posição.
+    for(let i=0;i<cores.length;i++){
+        console.log('+++++++++', cores[i])
+    }
+
+    let produtos = [
+        ['Geladeira',1200],
+        ['Batedeira', 450],
+        ['Relógio', 670]
+    ]
+    produtos[0][0]
+    produtos[0][1]
+
+    produtos.forEach((n,i) => {
+        console.log(`${i+1}. Compre ${n[0]} por apenas R$ ${n[1].toFixed(2)}`)
+    });
+
+    let sorteio = parseInt(Math.random()*20)+1
+    console.log('Sorteio', sorteio)
+    console.log((sorteio%2) == 0 ? 'Par' : 'Impar')
+    
+</script>
+</html>
