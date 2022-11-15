@@ -26,7 +26,7 @@
     #Fase 3
     - [x]crie uma variável de controle para acumular a quantidade de vezes que os números se repetem
     - [x]crie uma variável que armazene o valor do útimo sorteio
-    - []compare o valor do último sorteio com o valor do sorteio atual
+    - [x]compare o valor do último sorteio com o valor do sorteio atual
     --[x]Se os valores forem iguais: escreva 'Porta (x)' : aberta
     --[x]Se os valores forem diferentes: escreva 'Tente de novo' (Com a execução do resultado ser de números iguais)
     
@@ -44,21 +44,19 @@
     
     Fim do jogo acontece quando a terceira porta for aberta.    
     */
-
-    //let sorteioAtual = [0,0,0]
-    //let sorteioAnterior = [0,0,0]
+    let sorteioAnterior = [0,0,0]
     let novoSorteio = [0,0,0]
     let portaAberta = 1
+    let cont = 0
 
     function sorteia(){
         for (let i = 0; i < novoSorteio.length; i++) {
             let sorteio = parseInt(Math.random() * 3) + 1
             novoSorteio[i] = sorteio
             console.log(`${i + 1}°Número sorteado: ${novoSorteio[i]}`)       
-        }
-        //sorteioAtual = novoSorteio      
+        }      
         valores_iguais()
-        //sorteio_anterior()
+        verifica_sorteio_anterior()
     }
 
     function valores_iguais(){
@@ -81,23 +79,28 @@
             console.log(`============================`)
         }
     }
-
-    /*
-    function sorteio_anterior(){
-        for(let i = 0; i < sorteioAnterior.length; i++){
-            console.log(`------------------------------`)
-            console.log(`${i +1}° valor do sorteio anterior.${sorteioAnterior}`)
+   
+    function verifica_sorteio_anterior(){
+        let igual = 0
+        for(let i = 0; i < novoSorteio.length; i++){
+            if(novoSorteio[i] == sorteioAnterior[i]){
+                igual ++
+            }
+            sorteioAnterior[i] = novoSorteio[i]
         }
-        sorteioAnterior = sorteioAtual
-        if(sorteioAnterior == novoSorteio){
-            console.log(`Sorteio igual ao anterior, Porta aberta.`)
-            portaAberta++
-        }
+        if(igual == 3){
+            console.log(`Existem ${igual-1} arrays iguais.`)
+            console.log(`Porta ${portaAberta} aberta!`)
+            console.log(`============================`)
+            portaAberta ++
+        }        
     } 
-    */ 
     
+
     while(portaAberta <= 3){
         sorteia()
+        cont ++
     }
+    console.log(`Fim de jogo, foram ${cont} tentativas.`)
 </script>
 </html>
